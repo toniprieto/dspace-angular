@@ -285,6 +285,16 @@ export const environment: BuildConfig = {
   bundle: {
     standardBundles: ['ORIGINAL', 'THUMBNAIL', 'LICENSE'],
   },
+  // Location Picker configuration
+  locationPicker: {
+    googleApiKey: 'YOUR-KEY',
+    metadata: 'dc.coverage.spatial',
+    zoom: 8,
+    center: {
+      lat: 41.48378,
+      lng: 1.11369
+    }
+  },
   mediaViewer: {
     image: true,
     video: true

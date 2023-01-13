@@ -1753,7 +1753,13 @@
 
   "form.repeatable.sort.tip": "Drop the item in the new position",
 
+  "form.location-picker.button": "Location picker",
 
+  "form.location-picker.modal.button": "Location picker",
+
+  "form.location-picker.coordinates.placeholder" : "Coordinates",
+
+  "form.location-picker.input-search.placeholder" : "Search Location",
 
   "grant-deny-request-copy.deny": "Don't send copy",
 
@@ -2129,6 +2135,8 @@
   "item.edit.metadata.edit.buttons.unedit": "Stop editing",
 
   "item.edit.metadata.edit.buttons.virtual": "This is a virtual metadata value, i.e. a value inherited from a related entity. It can’t be modified directly. Add or remove the corresponding relationship in the \"Relationships\" tab",
+
+  "item.edit.metadata.button.location-picker" : "Location picker",
 
   "item.edit.metadata.empty": "The item currently doesn't contain any metadata. Click Add to start adding a metadata value.",
 

@@ -203,7 +203,9 @@ ds-dynamic-form-control-container.d-none {
   }
 }
 
-
+.pac-container {
+  z-index: 10000 !important;
+}
 
 .badge-validation {
   background-color: #{map-get($theme-colors, warning)};

@@ -1,0 +1,54 @@
+<div *ngIf="apiLoaded">
+  <div>
+    <input
+      type="text"
+      class="margin form-control"
+      id="pac-input"
+      (keydown.enter)="$event.preventDefault()"
+      placeholder="{{ 'form.location-picker.input-search.placeholder' | translate }}"
+      #search
+    />
+  </div>
+
+  <google-map
+    height="600px"
+    width="100%"
+    [zoom]="zoom"
+    [center]="center"
+    [options]="options"
+    (mapClick)="mapClick($event)"
+  >
+    <map-marker
+      #markerElem="mapMarker"
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [label]="marker.label"
+      [title]="marker.title"
+      [icon]="marker.icon"
+      [options]="marker.options"
+      (mapClick)="markerClick(markerElem)"
+    >
+    </map-marker>
+
+  </google-map>
+</div>
+
+<form class="form-inline" id="form-location-picker">
+    <div class="input-group col-9 mt-2 mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+      </div>
+      <input class="form-control"
+             name="coordinates"
+             placeholder="{{ 'form.location-picker.coordinates.placeholder' | translate }}"
+             type="text" [(ngModel)]="coordinates">
+    </div>
+    <div class="col-3 mt-2 mb-2">
+      <button class="btn btn-danger margin form-control"
+             type="button"
+             (click)="sendToParent($event)"
+             [disabled]="!coordinates">
+      {{ 'form.location-picker.modal.button' | translate }}
+      </button>
+    </div>
+</form>

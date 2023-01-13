@@ -10,6 +10,7 @@ import { MetadataValue } from '../../../core/shared/metadata.models';
 import { of } from 'rxjs/internal/observable/of';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { By } from '@angular/platform-browser';
+import { APP_CONFIG } from '../../../../config/app-config.interface';
 
 describe('DsoEditMetadataFieldValuesComponent', () => {
   let component: DsoEditMetadataFieldValuesComponent;
@@ -53,10 +54,23 @@ describe('DsoEditMetadataFieldValuesComponent', () => {
     mdField = 'dc.subject';
     draggingMdField$ = new BehaviorSubject<string>(null);
 
+    const environmentLocationPicker = {
+      locationPicker: {
+        googleApiKey: 'YOUR-API',
+        metadata: 'dc.coverage.spatial',
+        zoom: 8,
+        center: {
+          lat: 40,
+          lng: 50
+        }
+      }
+    };
+
     TestBed.configureTestingModule({
       declarations: [DsoEditMetadataFieldValuesComponent, VarDirective],
       imports: [TranslateModule.forRoot(), RouterTestingModule.withRoutes([])],
       providers: [
+        { provide: APP_CONFIG, useValue: environmentLocationPicker }
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();

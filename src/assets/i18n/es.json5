@@ -2410,6 +2410,17 @@
   // "form.repeatable.sort.tip": "Drop the item in the new position",
   "form.repeatable.sort.tip": "Suelte el ítem en la nueva posición",
 
+  // "form.location-picker.button": "Location picker",
+  "form.location-picker.button": "Selecciona coordenadas",
+
+  // "form.location-picker.modal.button": "Location picker",
+  "form.location-picker.modal.button": "Selecciona",
+
+  // "form.location-picker.coordinates.placeholder" : "Coordinates",
+  "form.location-picker.coordinates.placeholder" : "Coordenadas",
+
+  // "form.location-picker.input-search.placeholder" : "Search location",
+  "form.location-picker.input-search.placeholder" : "Busca localización",
 
 
   // "grant-deny-request-copy.deny": "Don't send copy",
@@ -2891,6 +2902,9 @@
 
   // "item.edit.metadata.edit.buttons.unedit": "Stop editing",
   "item.edit.metadata.edit.buttons.unedit": "Dejar de editar",
+
+  // "item.edit.metadata.button.location-picker" : "Location picker"
+  "item.edit.metadata.button.location-picker" : "Seleccionar coordenadas",
 
   // "item.edit.metadata.empty": "The item currently doesn't contain any metadata. Click Add to start adding a metadata value.",
   "item.edit.metadata.empty": "Actualmente, el ítem no contiene metadatos. Haga clic en Agregar para comenzar a agregar un valor de metadatos.",

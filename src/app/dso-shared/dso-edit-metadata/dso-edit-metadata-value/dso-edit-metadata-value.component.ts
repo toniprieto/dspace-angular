@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
 import { getItemPageRoute } from '../../../item-page/item-page-routing-paths';
 import { DSONameService } from '../../../core/breadcrumbs/dso-name.service';
 import { EMPTY } from 'rxjs/internal/observable/empty';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { LocationPickerComponent } from '../../../shared/location-picker/location-picker.component';
 
 @Component({
   selector: 'ds-dso-edit-metadata-value',
@@ -50,6 +52,11 @@ export class DsoEditMetadataValueComponent implements OnInit {
    * Will disable certain functionality like dragging (because dragging within a list of 1 is pointless)
    */
   @Input() isOnlyValue = false;
+
+  /**
+   * Add a button with a location picker to select coordinades
+   */
+  @Input() useLocationPicker = false;
 
   /**
    * Emits when the user clicked edit
@@ -98,7 +105,8 @@ export class DsoEditMetadataValueComponent implements OnInit {
   mdRepresentationName$: Observable<string | null>;
 
   constructor(protected relationshipService: RelationshipDataService,
-              protected dsoNameService: DSONameService) {
+              protected dsoNameService: DSONameService,
+              protected modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -122,5 +130,23 @@ export class DsoEditMetadataValueComponent implements OnInit {
     this.mdRepresentationName$ = this.mdRepresentation$.pipe(
       map((mdRepresentation: ItemMetadataRepresentation) => mdRepresentation ? this.dsoNameService.getName(mdRepresentation) : null),
     );
+  }
+
+  /**
+   * Open modal to show the location picker
+   * @param event The click event fired
+   */
+  openLocationPicker(event) {
+    const modalRef: NgbModalRef = this.modalService.open(LocationPickerComponent, { size: 'lg', windowClass: 'locationpicker' });
+    modalRef.componentInstance.inputValue = this.mdValue.newValue.value;
+    modalRef.result.then((result: string) => {
+      if (result) {
+        this.mdValue.newValue.value = result;
+        this.mdValue.confirmChanges(false);
+        this.confirm.emit(false);
+      }
+    }, () => {
+      return;
+    });
   }
 }

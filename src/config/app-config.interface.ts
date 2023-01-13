@@ -21,6 +21,7 @@ import { CommunityListConfig } from './community-list-config.interface';
 import { HomeConfig } from './homepage-config.interface';
 import { MarkdownConfig } from './markdown-config.interface';
 import { FilterVocabularyConfig } from './filter-vocabulary-config';
+import { LocationPickerConfig } from './location-picker-config.interface';
 
 interface AppConfig extends Config {
   ui: UIServerConfig;
@@ -42,6 +43,7 @@ interface AppConfig extends Config {
   themes: ThemeConfig[];
   mediaViewer: MediaViewerConfig;
   bundle: BundleConfig;
+  locationPicker: LocationPickerConfig;
   actuators: ActuatorsConfig
   info: InfoConfig;
   markdown: MarkdownConfig;
