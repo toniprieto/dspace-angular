@@ -324,6 +324,7 @@ import {
 } from '../item-page/simple/field-components/specific-field/title/item-page-title-field.component';
 import { MarkdownPipe } from './utils/markdown.pipe';
 import { GoogleRecaptchaModule } from '../core/google-recaptcha/google-recaptcha.module';
+import { LocationPickerModule } from './location-picker/location-picker.module';
 
 const MODULES = [
   CommonModule,
@@ -346,6 +347,7 @@ const MODULES = [
   DragDropModule,
   CdkTreeModule,
   GoogleRecaptchaModule,
+  LocationPickerModule,
 ];
 
 const ROOT_MODULES = [

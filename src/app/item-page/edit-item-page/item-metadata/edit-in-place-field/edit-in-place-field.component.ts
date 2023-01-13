@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnChanges, OnInit } from '@angular/core';
 import {
   metadataFieldsToString,
   getFirstSucceededRemoteData
@@ -15,6 +15,9 @@ import { InputSuggestion } from '../../../../shared/input-suggestions/input-sugg
 import { followLink } from '../../../../shared/utils/follow-link-config.model';
 import { FieldUpdate } from '../../../../core/data/object-updates/field-update.model';
 import { FieldChangeType } from '../../../../core/data/object-updates/field-change-type.model';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { LocationPickerComponent } from '../../../../shared/location-picker/location-picker.component';
+import { APP_CONFIG, AppConfig } from '../../../../../config/app-config.interface';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -56,10 +59,18 @@ export class EditInPlaceFieldComponent implements OnInit, OnChanges {
    */
   metadataFieldSuggestions: BehaviorSubject<InputSuggestion[]> = new BehaviorSubject([]);
 
+  /**
+   * Metadatafield used for location-picker
+   */
+  locationPickerMetadata: string;
+
   constructor(
     private registryService: RegistryService,
     private objectUpdatesService: ObjectUpdatesService,
+    protected modalService: NgbModal,
+    @Inject(APP_CONFIG) protected appConfig: AppConfig
   ) {
+    this.locationPickerMetadata = this.appConfig.locationPicker.metadata;
   }
 
   /**
@@ -197,5 +208,22 @@ export class EditInPlaceFieldComponent implements OnInit, OnChanges {
 
   protected isNotEmpty(value): boolean {
     return isNotEmpty(value);
+  }
+
+  /**
+   * Open modal to show the location picker
+   * @param event The click event fired
+   */
+  openLocationPicker(event) {
+    const modalRef: NgbModalRef = this.modalService.open(LocationPickerComponent, { size: 'lg', windowClass: 'locationpicker' });
+    modalRef.componentInstance.inputValue = this.metadata?.value;
+    modalRef.result.then((result: string) => {
+      if (result) {
+        this.metadata.value = result;
+        this.objectUpdatesService.saveChangeFieldUpdate(this.url, cloneDeep(this.metadata));
+      }
+    }, () => {
+      return;
+    });
   }
 }

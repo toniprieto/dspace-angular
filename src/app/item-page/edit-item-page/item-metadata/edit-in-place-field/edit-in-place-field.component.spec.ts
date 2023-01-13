@@ -21,6 +21,7 @@ import { MockComponent, MockDirective } from 'ng-mocks';
 import { DebounceDirective } from '../../../../shared/utils/debounce.directive';
 import { ValidationSuggestionsComponent } from '../../../../shared/input-suggestions/validation-suggestions/validation-suggestions.component';
 import { FieldChangeType } from '../../../../core/data/object-updates/field-change-type.model';
+import { APP_CONFIG } from '../../../../../config/app-config.interface';
 
 let comp: EditInPlaceFieldComponent;
 let fixture: ComponentFixture<EditInPlaceFieldComponent>;
@@ -81,6 +82,18 @@ describe('EditInPlaceFieldComponent', () => {
       }
     );
 
+    const environmentLocationPicker = {
+      locationPicker: {
+        googleApiKey: 'YOUR-API',
+        metadata: 'dc.coverage.spatial',
+        zoom: 8,
+        center: {
+          lat: 40,
+          lng: 50
+        }
+      }
+    };
+
     TestBed.configureTestingModule({
       imports: [FormsModule, TranslateModule.forRoot()],
       declarations: [
@@ -91,7 +104,8 @@ describe('EditInPlaceFieldComponent', () => {
       providers: [
         { provide: RegistryService, useValue: metadataFieldService },
         { provide: ObjectUpdatesService, useValue: objectUpdatesService },
-        { provide: MetadataFieldDataService, useValue: {} }
+        { provide: MetadataFieldDataService, useValue: {} },
+        { provide: APP_CONFIG, useValue: environmentLocationPicker }
       ], schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ]

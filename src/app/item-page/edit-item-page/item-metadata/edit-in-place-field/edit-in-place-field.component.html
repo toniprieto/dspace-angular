@@ -30,7 +30,13 @@
         </div>
         <div *ngIf="(editable | async)" class="field-container">
             <textarea class="form-control" type="textarea" attr.aria-labelledby="fieldValue" [(ngModel)]="metadata.value" [dsDebounce]
-                      (onDebounce)="update()"></textarea>
+                      (onDebounce)="update()" ></textarea>
+          <button *ngIf="(metadata?.key === locationPickerMetadata) && (editable | async)"
+                  class="form-control btn-info"
+                  (click)="openLocationPicker($event)">
+            <i class="fas fa-map-marker-alt"></i>
+            {{'item.edit.metadata.button.location-picker' | translate}}
+          </button>
         </div>
     </div>
 </td>

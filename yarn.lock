@@ -332,6 +332,14 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/google-maps@~13.2.6":
+  version "13.2.6"
+  resolved "https://registry.yarnpkg.com/@angular/google-maps/-/google-maps-13.2.6.tgz#c848d80800e43f7b8fa0d33fb5d8f91fb2b1dc70"
+  integrity sha512-ifqRzJ8jaV6U46TYbXIW7gSclCCk1toWsZY7GLaMTE7olNa47dr4ctC+uJBlacGGaorRjbZDR492NoHctPSKGQ==
+  dependencies:
+    "@types/google.maps" "^3.45.6"
+    tslib "^2.3.0"
+
 "@angular/language-service@~13.2.6":
   version "13.2.6"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-13.2.6.tgz#ee417af8a814b531be54e82e73254c3f18793a3a"
@@ -2246,6 +2254,11 @@
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/@types/file-saver/-/file-saver-2.0.5.tgz#9ee342a5d1314bb0928375424a2f162f97c310c7"
   integrity sha512-zv9kNf3keYegP5oThGLaPk8E081DFDuwfqjtiTzm6PoxChdJ1raSuADf2YGCVIyrSynLrgc8JWv296s7Q7pQSQ==
+
+"@types/google.maps@^3.45.6":
+  version "3.50.5"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.50.5.tgz#a0d12675b547205fc163c4b8d999db305ba3862a"
+  integrity sha512-RuZf1MJtctGlpW+Gd4a/eGtAufUDjMf+eyN1l+B3fbe2YLScJbg8KEljJfb+6vnSPFAeM1/48geVIEg3vqOkxw==
 
 "@types/grecaptcha@^3.0.4":
   version "3.0.4"

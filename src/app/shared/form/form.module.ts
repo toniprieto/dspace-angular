@@ -30,6 +30,7 @@ import { ExistingRelationListElementComponent } from './builder/ds-dynamic-form-
 import { ExternalSourceEntryImportModalComponent } from './builder/ds-dynamic-form-ui/relation-lookup-modal/external-source-tab/external-source-entry-import-modal/external-source-entry-import-modal.component';
 import { CustomSwitchComponent } from './builder/ds-dynamic-form-ui/models/custom-switch/custom-switch.component';
 import { DynamicFormsNGBootstrapUIModule } from '@ng-dynamic-forms/ui-ng-bootstrap';
+import { DsDynamicCoordinatesComponent } from './builder/ds-dynamic-form-ui/models/coordinates/dynamic-coordinates.component';
 
 const COMPONENTS = [
   CustomSwitchComponent,
@@ -41,6 +42,7 @@ const COMPONENTS = [
   DsDynamicLookupRelationSelectionTabComponent,
   DsDynamicLookupRelationExternalSourceTabComponent,
   DsDynamicDisabledComponent,
+  DsDynamicCoordinatesComponent,
   DsDynamicLookupRelationModalComponent,
   DsDynamicScrollableDropdownComponent,
   DsDynamicTagComponent,

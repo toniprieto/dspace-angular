@@ -1611,7 +1611,11 @@
 
   "form.repeatable.sort.tip": "Drop the item in the new position",
 
+  "form.location-picker.button": "Location picker",
 
+  "form.location-picker.coordinates.placeholder" : "Coordinates",
+
+  "form.location-picker.input-search.placeholder" : "Search Location",
 
   "grant-deny-request-copy.deny": "Don't send copy",
 
@@ -1939,6 +1943,8 @@
   "item.edit.metadata.edit.buttons.undo": "Undo changes",
 
   "item.edit.metadata.edit.buttons.unedit": "Stop editing",
+
+  "item.edit.metadata.button.location-picker" : "Location picker",
 
   "item.edit.metadata.empty": "The item currently doesn't contain any metadata. Click Add to start adding a metadata value.",
 

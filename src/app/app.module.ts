@@ -1,5 +1,5 @@
 import { APP_BASE_HREF, CommonModule, DOCUMENT } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -59,6 +59,7 @@ const IMPORTS = [
   SharedModule,
   NavbarModule,
   HttpClientModule,
+  HttpClientJsonpModule,
   AppRoutingModule,
   CoreModule.forRoot(),
   ScrollToModule.forRoot(),

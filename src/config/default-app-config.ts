@@ -20,6 +20,7 @@ import { InfoConfig } from './info-config.interface';
 import { CommunityListConfig } from './community-list-config.interface';
 import { HomeConfig } from './homepage-config.interface';
 import { MarkdownConfig } from './markdown-config.interface';
+import { LocationPickerConfig } from './location-picker-config.interface';
 
 export class DefaultAppConfig implements AppConfig {
   production = false;
@@ -350,6 +351,17 @@ export class DefaultAppConfig implements AppConfig {
   bundle: BundleConfig = {
     standardBundles: ['ORIGINAL', 'THUMBNAIL', 'LICENSE']
   };
+  // Location Picker configuration
+  locationPicker: LocationPickerConfig = {
+    googleApiKey: 'YOUR-KEY',
+    metadata: 'dc.coverage.spatial',
+    zoom: 8,
+    center: {
+      lat: 41.48378,
+      lng: 1.11369
+    }
+  };
+
   // Whether to enable media viewer for image and/or video Bitstreams (i.e. Bitstreams whose MIME type starts with "image" or "video").
   // For images, this enables a gallery viewer where you can zoom or page through images.
   // For videos, this enables embedded video streaming

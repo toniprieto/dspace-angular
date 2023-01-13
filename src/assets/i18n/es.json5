@@ -952,7 +952,7 @@
 
   // "bitstream-request-a-copy.intro.bitstream.one": "Requesting the following file: ",
   "bitstream-request-a-copy.intro.bitstream.one": "Solicitando el fichero siguiente: ",
- 
+
   // "bitstream-request-a-copy.intro.bitstream.all": "Requesting all files. ",
   "bitstream-request-a-copy.intro.bitstream.all": "Solicitando todos los ficheros. ",
 
@@ -1466,70 +1466,70 @@
 
   // "collection.source.controls.head": "Harvest Controls",
   "collection.source.controls.head": "Controles de recolección",
-  
+
   // "collection.source.controls.test.submit.error": "Something went wrong with initiating the testing of the settings",
   "collection.source.controls.test.submit.error": "Hubo fallos al realizar las pruebas de comprobación de los ajustes",
-  
+
   // "collection.source.controls.test.failed": "The script to test the settings has failed",
   "collection.source.controls.test.failed": "La prueba de los ajustes ha fallado",
-  
+
   // "collection.source.controls.test.completed": "The script to test the settings has successfully finished",
   "collection.source.controls.test.completed": "El script de prueba de los ajustes ha terminado correctamente ",
-  
+
   // "collection.source.controls.test.submit": "Test configuration",
   "collection.source.controls.test.submit": "Probar la configuración",
-  
+
   // "collection.source.controls.test.running": "Testing configuration...",
   "collection.source.controls.test.running": "Probando la configuración...",
-  
+
   // "collection.source.controls.import.submit.success": "The import has been successfully initiated",
   "collection.source.controls.import.submit.success": "La importación ha comenzado correctamente",
-  
+
   // "collection.source.controls.import.submit.error": "Something went wrong with initiating the import",
   "collection.source.controls.import.submit.error": "Hubo algún fallo al iniciar la importación",
-  
+
   // "collection.source.controls.import.submit": "Import now",
   "collection.source.controls.import.submit": "Importar ahora",
-  
+
   // "collection.source.controls.import.running": "Importing...",
   "collection.source.controls.import.running": "Importando...",
-  
+
   // "collection.source.controls.import.failed": "An error occurred during the import",
   "collection.source.controls.import.failed": "Ha ocurrido un error durante la importación",
-  
+
   // "collection.source.controls.import.completed": "The import completed",
   "collection.source.controls.import.completed": "La importación finalizó",
-  
+
   // "collection.source.controls.reset.submit.success": "The reset and reimport has been successfully initiated",
   "collection.source.controls.reset.submit.success": "La restauración y reimportación ha comenzado correctamente",
-  
+
   // "collection.source.controls.reset.submit.error": "Something went wrong with initiating the reset and reimport",
   "collection.source.controls.reset.submit.error": "Ha ocurrido un error al iniciar la restauración y reimportación",
-  
+
   // "collection.source.controls.reset.failed": "An error occurred during the reset and reimport",
   "collection.source.controls.reset.failed": "Ha ocurrido un error en la restauración y reimportación",
-  
+
   // "collection.source.controls.reset.completed": "The reset and reimport completed",
   "collection.source.controls.reset.completed": "Restauración y reimportación finalizadas",
-  
+
   // "collection.source.controls.reset.submit": "Reset and reimport",
   "collection.source.controls.reset.submit": "Restauración y reimportación",
-  
+
   // "collection.source.controls.reset.running": "Resetting and reimporting...",
   "collection.source.controls.reset.running": "Restaurando y reimportando...",
-  
+
   // "collection.source.controls.harvest.status": "Harvest status:",
   "collection.source.controls.harvest.status": "Estado de la Recolección:",
-  
+
   // "collection.source.controls.harvest.start": "Harvest start time:",
   "collection.source.controls.harvest.start": "Comienzo de la recolección:",
-  
+
   // "collection.source.controls.harvest.last": "Last time harvested:",
   "collection.source.controls.harvest.last": "Fecha de la última recolección:",
-  
+
   // "collection.source.controls.harvest.message": "Harvest info:",
   "collection.source.controls.harvest.message": "Información de recolección:",
-  
+
   // "collection.source.controls.harvest.no-information": "N/A",
   "collection.source.controls.harvest.no-information": "N/A",
 
@@ -2333,6 +2333,14 @@
   // "form.repeatable.sort.tip": "Drop the item in the new position",
   "form.repeatable.sort.tip": "Suelte el ítem en la nueva posición",
 
+  // "form.location-picker.button": "Location picker",
+  "form.location-picker.button": "Selecciona coordenadas",
+
+  // "form.location-picker.coordinates.placeholder" : "Coordinates",
+  "form.location-picker.coordinates.placeholder" : "Coordenadas",
+
+  // "form.location-picker.input-search.placeholder" : "Search location",
+  "form.location-picker.input-search.placeholder" : "Busca localización",
 
   // "grant-deny-request-copy.deny": "Don't send copy",
   "grant-deny-request-copy.deny": "No envíe copia",
@@ -2815,6 +2823,9 @@
 
   // "item.edit.metadata.edit.buttons.unedit": "Stop editing",
   "item.edit.metadata.edit.buttons.unedit": "Dejar de editar",
+
+  // "item.edit.metadata.button.location-picker" : "Location picker"
+  "item.edit.metadata.button.location-picker" : "Seleccionar coordenadas",
 
   // "item.edit.metadata.empty": "The item currently doesn't contain any metadata. Click Add to start adding a metadata value.",
   "item.edit.metadata.empty": "Actualmente, el artículo no contiene metadatos. Haga clic en Agregar para comenzar a agregar un valor de metadatos.",
@@ -4018,10 +4029,10 @@
 
   // "metadata-export-search.tooltip": "Export search results as CSV",
   "metadata-export-search.tooltip": "Exportar los resultados de búsqueda a CSV",
-  
+
   // "metadata-export-search.submit.success": "The export was started successfully",
   "metadata-export-search.submit.success": "La exortación ha comenzado satisfactoriamente",
-  
+
   // "metadata-export-search.submit.error": "Starting the export has failed",
   "metadata-export-search.submit.error": "Ha fallado el comienzo de la exportación",
 
@@ -5744,7 +5755,7 @@
 
   // "submission.sections.describe.relationship-lookup.search-tab.tab-title.isJournalOfPublication": "Local Journals ({{ count }})",
   "submission.sections.describe.relationship-lookup.search-tab.tab-title.isJournalOfPublication": "Revistas locales ({{ count }})",
-  
+
   // "submission.sections.describe.relationship-lookup.search-tab.tab-title.Project": "Local Projects ({{ count }})",
   "submission.sections.describe.relationship-lookup.search-tab.tab-title.Project": "Proyectos locales ({{ count }})",
 
@@ -5768,13 +5779,13 @@
 
   // "submission.sections.describe.relationship-lookup.search-tab.tab-title.isJournalIssueOfPublication": "Local Journal Issues ({{ count }})",
   "submission.sections.describe.relationship-lookup.search-tab.tab-title.isJournalIssueOfPublication": "Números de revista locales ({{ count }})",
-  
+
   // "submission.sections.describe.relationship-lookup.search-tab.tab-title.JournalIssue": "Local Journal Issues ({{ count }})",
   "submission.sections.describe.relationship-lookup.search-tab.tab-title.JournalIssue": "Números de revista locales  ({{ count }})",
 
   // "submission.sections.describe.relationship-lookup.search-tab.tab-title.isJournalVolumeOfPublication": "Local Journal Volumes ({{ count }})",
   "submission.sections.describe.relationship-lookup.search-tab.tab-title.isJournalVolumeOfPublication": "Volúmenes de revista locales ({{ count }})",
-  
+
   // "submission.sections.describe.relationship-lookup.search-tab.tab-title.JournalVolume": "Local Journal Volumes ({{ count }})",
   "submission.sections.describe.relationship-lookup.search-tab.tab-title.JournalVolume": "Volúmenes de revista locales ({{ count }})",
 
@@ -5835,13 +5846,13 @@
 
   // "submission.sections.describe.relationship-lookup.title.isJournalIssueOfPublication": "Journal Issues",
   "submission.sections.describe.relationship-lookup.title.isJournalIssueOfPublication": "Numeros de la revista",
-  
+
   // "submission.sections.describe.relationship-lookup.title.JournalIssue": "Journal Issues",
   "submission.sections.describe.relationship-lookup.title.JournalIssue": "Numeros de la revista",
 
   // "submission.sections.describe.relationship-lookup.title.isJournalVolumeOfPublication": "Journal Volumes",
   "submission.sections.describe.relationship-lookup.title.isJournalVolumeOfPublication": "Volúmenes de la revista",
-  
+
   // "submission.sections.describe.relationship-lookup.title.JournalVolume": "Journal Volumes",
   "submission.sections.describe.relationship-lookup.title.JournalVolume": "Volúmenes de la revista",
 
@@ -5853,7 +5864,7 @@
 
   // "submission.sections.describe.relationship-lookup.title.isFundingAgencyOfPublication": "Funding Agency",
   "submission.sections.describe.relationship-lookup.title.isFundingAgencyOfPublication": "Agencia financiadora",
-  
+
   // "submission.sections.describe.relationship-lookup.title.Project": "Projects",
   "submission.sections.describe.relationship-lookup.title.Project": "Proyectos",
 
@@ -5898,7 +5909,7 @@
 
   // "submission.sections.describe.relationship-lookup.selection-tab.title.isJournalVolumeOfPublication": "Selected Journal Volume",
   "submission.sections.describe.relationship-lookup.selection-tab.title.isJournalVolumeOfPublication": "Volumen de revista seleccionada",
-  
+
   // "submission.sections.describe.relationship-lookup.selection-tab.title.Project": "Selected Projects",
   "submission.sections.describe.relationship-lookup.selection-tab.title.Project": "Proyectos seleccionados",
 
@@ -5922,7 +5933,7 @@
 
   // "submission.sections.describe.relationship-lookup.selection-tab.title.isJournalIssueOfPublication": "Selected Issue",
   "submission.sections.describe.relationship-lookup.selection-tab.title.isJournalIssueOfPublication": "Número de revista seleccionados",
-  
+
   // "submission.sections.describe.relationship-lookup.selection-tab.title.JournalVolume": "Selected Journal Volume",
   "submission.sections.describe.relationship-lookup.selection-tab.title.JournalVolume": "Volúmenes de revista seleccionados  ",
 
@@ -5931,7 +5942,7 @@
 
   // "submission.sections.describe.relationship-lookup.selection-tab.title.isFundingOfPublication": "Selected Funding",
   "submission.sections.describe.relationship-lookup.selection-tab.title.isFundingOfPublication": "Financiamientos seleccionados",
-  
+
   // "submission.sections.describe.relationship-lookup.selection-tab.title.JournalIssue": "Selected Issue",
   "submission.sections.describe.relationship-lookup.selection-tab.title.JournalIssue": "Número seleccionado",
 
@@ -6218,7 +6229,7 @@
 
   // "submission.sections.accesses.form.discoverable-description": "When checked, this item will be discoverable in search/browse.   When unchecked, the item will only be available via a direct link and will never appear in search/browse.",
   "submission.sections.accesses.form.discoverable-description": "Si lo marca, el ítem será detectable en el buscador/navegador. Si lo desmarca, el ítems solo estará disponible mediante el enlace directo, y no aparecerá en el buscador/navegador.",
- 
+
  // "submission.sections.accesses.form.discoverable-label": "Discoverable",
   "submission.sections.accesses.form.discoverable-label": "Detectable",
 
@@ -6913,7 +6924,7 @@
 
   // "person.page.orcid.sync-queue.send.validation-error.organization.city-required": "The address of the organization to be sent requires a city",
   "person.page.orcid.sync-queue.send.validation-error.organization.city-required": "Se requiere que la dirección de la organización tenga una ciudad",
-  
+
   // "person.page.orcid.sync-queue.send.validation-error.organization.country-required": "The address of the organization to be sent requires a valid 2 digits ISO 3166 country",
   "person.page.orcid.sync-queue.send.validation-error.organization.country-required": "Se requiere que la dirección de la organización tenga un código de pais de 2 dígitos ISO 3166 válido",
 
@@ -6922,7 +6933,7 @@
 
   // "person.page.orcid.sync-queue.send.validation-error.disambiguated-organization.value-required": "The organization's identifiers requires a value",
   "person.page.orcid.sync-queue.send.validation-error.disambiguated-organization.value-required": "Se requiere que los identificadores de la organización tengan un valor",
-  
+
   // "person.page.orcid.sync-queue.send.validation-error.disambiguation-source.required": "The organization's identifiers requires a source",
   "person.page.orcid.sync-queue.send.validation-error.disambiguation-source.required": "Se requiere que los identificadores de la organización tengan una fuente",
 

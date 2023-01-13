@@ -2,6 +2,7 @@
 import { BuildConfig } from 'src/config/build-config.interface';
 import { RestRequestMethod } from '../app/core/data/rest-request-method';
 import { NotificationAnimationsType } from '../app/shared/notifications/models/notification-animations-type';
+import { LocationPickerConfig } from '../config/location-picker-config.interface';
 
 export const environment: BuildConfig = {
   production: false,
@@ -263,6 +264,16 @@ export const environment: BuildConfig = {
   ],
   bundle: {
     standardBundles: ['ORIGINAL', 'THUMBNAIL', 'LICENSE'],
+  },
+  // Location Picker configuration
+  locationPicker: {
+    googleApiKey: 'YOUR-KEY',
+    metadata: 'dc.coverage.spatial',
+    zoom: 8,
+    center: {
+      lat: 41.48378,
+      lng: 1.11369
+    }
   },
   mediaViewer: {
     image: true,
