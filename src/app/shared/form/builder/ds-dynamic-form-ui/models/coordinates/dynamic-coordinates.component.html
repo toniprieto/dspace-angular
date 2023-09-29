@@ -1,0 +1,24 @@
+<div>
+    <div class="form-row align-items-center">
+        <div class="col-md-10">
+            <input class="form-control"
+                   [class.is-invalid]="showErrorMessages"
+                   [id]="id"
+                   [name]="model.name"
+                   [disabled]="model.disabled"
+                   [(ngModel)]="model.value"
+                   [type]="model.inputType"
+                   [placeholder]="model.placeholder | translate"
+                   [readonly]="model.readOnly"
+                   (change)="onChange($event)"
+                    (blur)="onBlur($event)">
+        </div>
+        <div class="col-md-2">
+            <button class="form-control btn-info"
+                    (click)="openLocationPicker(id)">
+              <i class="fas fa-map-marker-alt"></i>
+              {{'form.location-picker.button' | translate}}
+            </button>
+        </div>
+    </div>
+</div>

@@ -116,6 +116,8 @@ import { followLink } from '../../../utils/follow-link-config.model';
 import { paginatedRelationsToItems } from '../../../../item-page/simple/item-types/shared/item-relationships-utils';
 import { RelationshipOptions } from '../models/relationship-options.model';
 import { FormBuilderService } from '../form-builder.service';
+import { DYNAMIC_FORM_CONTROL_TYPE_COORDINATES } from './models/coordinates/dynamic-coordinates.model';
+import { DsDynamicCoordinatesComponent } from './models/coordinates/dynamic-coordinates.component';
 import { DYNAMIC_FORM_CONTROL_TYPE_RELATION_GROUP } from './ds-dynamic-form-constants';
 import { FormFieldMetadataValueObject } from '../models/form-field-metadata-value.model';
 import { APP_CONFIG, AppConfig } from '../../../../../config/app-config.interface';
@@ -178,6 +180,9 @@ export function dsDynamicFormControlMapFn(model: DynamicFormControlModel): Type<
 
     case DYNAMIC_FORM_CONTROL_TYPE_DISABLED:
       return DsDynamicDisabledComponent;
+
+    case DYNAMIC_FORM_CONTROL_TYPE_COORDINATES:
+      return DsDynamicCoordinatesComponent;
 
     case DYNAMIC_FORM_CONTROL_TYPE_CUSTOM_SWITCH:
       return CustomSwitchComponent;

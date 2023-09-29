@@ -18,6 +18,7 @@ import { DsDatePickerInlineComponent } from './builder/ds-dynamic-form-ui/models
 import { DsDynamicLookupRelationSearchTabComponent } from './builder/ds-dynamic-form-ui/relation-lookup-modal/search-tab/dynamic-lookup-relation-search-tab.component';
 import { DsDynamicLookupRelationSelectionTabComponent } from './builder/ds-dynamic-form-ui/relation-lookup-modal/selection-tab/dynamic-lookup-relation-selection-tab.component';
 import { DsDynamicLookupRelationExternalSourceTabComponent } from './builder/ds-dynamic-form-ui/relation-lookup-modal/external-source-tab/dynamic-lookup-relation-external-source-tab.component';
+import { DsDynamicCoordinatesComponent } from './builder/ds-dynamic-form-ui/models/coordinates/dynamic-coordinates.component';
 import { SharedModule } from '../shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchModule } from '../search/search.module';
@@ -37,6 +38,7 @@ import { FormBuilderService } from './builder/form-builder.service';
 import { DsDynamicTypeBindRelationService } from './builder/ds-dynamic-form-ui/ds-dynamic-type-bind-relation.service';
 import { FormService } from './form.service';
 import { NgxMaskModule } from 'ngx-mask';
+import { LocationPickerModule } from '../location-picker/location-picker.module';
 import { ThemedExternalSourceEntryImportModalComponent } from './builder/ds-dynamic-form-ui/relation-lookup-modal/external-source-tab/external-source-entry-import-modal/themed-external-source-entry-import-modal.component';
 import { NgbDatepickerModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { CdkTreeModule } from '@angular/cdk/tree';
@@ -55,6 +57,7 @@ const COMPONENTS = [
   DsDynamicLookupRelationExternalSourceTabComponent,
   ThemedDynamicLookupRelationExternalSourceTabComponent,
   DsDynamicDisabledComponent,
+  DsDynamicCoordinatesComponent,
   DsDynamicLookupRelationModalComponent,
   DsDynamicScrollableDropdownComponent,
   DsDynamicTagComponent,
@@ -89,6 +92,7 @@ const DIRECTIVES = [
     DynamicFormsCoreModule,
     DynamicFormsNGBootstrapUIModule,
     SearchModule,
+    LocationPickerModule,
     SharedModule,
     TranslateModule,
     SortablejsModule,

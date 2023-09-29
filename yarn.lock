@@ -402,6 +402,14 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/google-maps@~15.2.8":
+  version "15.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/google-maps/-/google-maps-15.2.9.tgz#69387b210c00e1fab3d3e74dad922a1eb637e0ec"
+  integrity sha512-TViEM0b5LxFCZ2rnpDjJCZzz5CLBaO+x9Lzb/OfNNuAfQ2sr/ExjT5pOBc93KhG5c04URc2YLqh5Yq2+YUFYgA==
+  dependencies:
+    "@types/google.maps" "^3.45.6"
+    tslib "^2.3.0"
+
 "@angular/language-service@^15.2.8":
   version "15.2.8"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-15.2.8.tgz#f37fb8b020c9d0fccf1bb5b46db525b67084cc9c"
@@ -2406,6 +2414,11 @@
     "@types/express-serve-static-core" "^4.17.33"
     "@types/qs" "*"
     "@types/serve-static" "*"
+
+"@types/google.maps@^3.45.6":
+  version "3.54.2"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.54.2.tgz#4fb2447294d35d0d0919a820b0cc08b83645d7db"
+  integrity sha512-H75MGIauIsmBNeSSk3MNUxU0dcdipMnoUwXLtmtqvKTNfEJYZGKeJG22kt4VCRpZ0nQEPNqXS3mnDshzIbRdZw==
 
 "@types/grecaptcha@^3.0.4":
   version "3.0.4"

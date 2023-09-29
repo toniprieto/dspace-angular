@@ -15,6 +15,10 @@ import {
   DsDynamicOneboxModelConfig,
   DynamicOneboxModel
 } from '../ds-dynamic-form-ui/models/onebox/dynamic-onebox.model';
+import {
+  DsDynamicCoordinatesModelConfig,
+  DynamicCoordinatesModel
+} from '../ds-dynamic-form-ui/models/coordinates/dynamic-coordinates.model';
 
 export class OneboxFieldParser extends FieldParser {
 
@@ -76,6 +80,10 @@ export class OneboxFieldParser extends FieldParser {
       inputSelectGroup.group.push(new DsDynamicInputModel(inputModelConfig, clsInput));
 
       return new DynamicQualdropModel(inputSelectGroup, clsGroup);
+    } else if (this.configData.selectableMetadata[0].metadata === 'dc.coverage.spatial') {
+      const coordinatesModelConfig: DsDynamicCoordinatesModelConfig = this.initModel(null, label);
+      this.setValues(coordinatesModelConfig, fieldValue, true);
+      return new DynamicCoordinatesModel(coordinatesModelConfig);
     } else if (this.configData.selectableMetadata[0].controlledVocabulary) {
       const oneboxModelConfig: DsDynamicOneboxModelConfig = this.initModel(null, label);
       this.setVocabularyOptions(oneboxModelConfig);

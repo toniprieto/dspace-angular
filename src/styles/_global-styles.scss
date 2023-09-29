@@ -93,6 +93,10 @@ ngb-modal-backdrop {
 
 }
 
+.pac-container {
+    z-index: 10000 !important;
+}
+
 .researcher-profile-switch button:focus {
     outline: none !important;
 }

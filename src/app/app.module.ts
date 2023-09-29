@@ -1,5 +1,5 @@
 import { APP_BASE_HREF, CommonModule, DOCUMENT } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -24,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
 import { environment } from '../environments/environment';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
 import { LocaleInterceptor } from './core/locale/locale.interceptor';
+import { NoHeadersJsonpInterceptor } from './shared/location-picker/no-headers-jsonp-interceptor';
 import { XsrfInterceptor } from './core/xsrf/xsrf.interceptor';
 import { LogInterceptor } from './core/log/log.interceptor';
 import { EagerThemesModule } from '../themes/eager-themes.module';
@@ -103,6 +104,12 @@ const PROVIDERS = [
     useClass: LogInterceptor,
     multi: true
   },
+  // Jsonp Interceptor
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: NoHeadersJsonpInterceptor,
+    multi: true
+  },
   // register the dynamic matcher used by form. MUST be provided by the app module
   ...DYNAMIC_MATCHER_PROVIDERS,
 ];
@@ -117,6 +124,7 @@ const EXPORTS = [
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'dspace-angular' }),
+    HttpClientJsonpModule,
     ...IMPORTS
   ],
   providers: [
