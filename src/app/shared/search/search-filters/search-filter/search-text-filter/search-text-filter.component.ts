@@ -20,6 +20,7 @@ import { addOperatorToFilterValue, } from '../../../search.utils';
 /**
  * Component that represents a text facet for a specific filter configuration
  */
+@renderFacetFor(FilterType.translatable)
 @renderFacetFor(FilterType.text)
 export class SearchTextFilterComponent extends SearchFacetFilterComponent implements OnInit {
   /**

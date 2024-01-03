@@ -13,6 +13,11 @@ export enum FilterType {
   text = 'text',
 
   /**
+   * Represents translatable facets
+   */
+  translatable = 'translatable',
+
+  /**
    * Represents date facets
    */
   range = 'date',
