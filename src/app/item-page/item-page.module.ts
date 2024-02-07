@@ -60,6 +60,7 @@ import { ThemedItemAlertsComponent } from './alerts/themed-item-alerts.component
 import {
   ThemedFullFileSectionComponent
 } from './full/field-components/file-section/themed-full-file-section.component';
+import { CoordinatesMapComponent } from './simple/field-components/specific-field/coordinates-map/coordinates-map.component';
 
 const ENTRY_COMPONENTS = [
   // put only entry components that use custom decorator
@@ -80,6 +81,7 @@ const DECLARATIONS = [
   ItemPageAbstractFieldComponent,
   ItemPageUriFieldComponent,
   ItemPageFieldComponent,
+  CoordinatesMapComponent,
   CollectionsComponent,
   FullFileSectionComponent,
   ThemedFullFileSectionComponent,

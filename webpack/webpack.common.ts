@@ -14,6 +14,11 @@ export const copyWebpackOptions = {
       force: undefined
     },
     {
+      from: path.join(__dirname, '..', 'node_modules', 'leaflet', 'dist', 'leaflet.css'),
+      to: path.join('assets', 'styles', 'leaflet.scss'),
+      force: undefined
+    },
+    {
       from: path.join(__dirname, '..', 'src', 'assets', '**', '*.json5').replace(/\\/g, '/'),
       to({ absoluteFilename }) {
         // use [\/|\\] to match both POSIX and Windows separators
@@ -104,6 +109,13 @@ export const commonExports = {
               resources: globalCSSImports()
             },
           }
+        ]
+      },
+      // Regla para procesar leaflet.css como un archivo SCSS
+      {
+        test: /leaflet-src\.css$/,  // El archivo que coincide con este patrón será procesado
+        use: [
+          'css-loader',    // Interpreta archivos CSS
         ]
       },
       {

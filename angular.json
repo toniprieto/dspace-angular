@@ -41,10 +41,16 @@
             "aot": true,
             "assets": [
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "assets/images/"
+              }
             ],
             "styles": [
               "src/styles/startup.scss",
+              "node_modules/leaflet/dist/leaflet.css",
               {
                 "input": "src/styles/base-theme.scss",
                 "inject": false,

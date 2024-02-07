@@ -65,6 +65,10 @@
       [fields]="['dc.identifier.citation']"
       [label]="'item.page.citation'">
     </ds-generic-item-page-field>
+    <ds-coordinates-map [item]="object"
+      [field]="'dc.coverage.spatial'"
+      [label]="'item.page.location'">
+    </ds-coordinates-map>
     <ds-item-page-uri-field [item]="object"
       [fields]="['dc.identifier.uri']"
       [label]="'item.page.uri'">

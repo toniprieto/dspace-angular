@@ -1,0 +1,13 @@
+<div class="item-page-field" *ngIf="item?.allMetadata(field).length > 0">
+  <ds-metadata-field-wrapper [label]="label | translate">
+    <div *ngFor="let coverageValue of markersInfo;index as i"> 
+      <a (click)="zoomMarker(coverageValue.position)" href="javascript:void(0)">
+        <small>
+          <i class="fas fa-location-dot"></i> {{ coverageValue.name }}
+        </small>
+      </a>
+    </div>
+    <div id="map" class="map-container" >
+    </div>
+  </ds-metadata-field-wrapper>
+</div>
