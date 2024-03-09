@@ -71,6 +71,11 @@ export class SubmissionSectionCcLicensesComponent extends SectionModelComponent 
   defaultJurisdiction: string;
 
   /**
+   * Locale configured
+   */
+  ccLocale: string;
+
+  /**
    * The Creative Commons link saved in the workspace item.
    */
   get storedCcLicenseLink(): string {
@@ -279,6 +284,14 @@ export class SubmissionSectionCcLicensesComponent extends SectionModelComponent 
             this.defaultJurisdiction = '';
           } else {
             this.defaultJurisdiction = remoteData.values[0];
+          }
+      }),
+      this.configService.findByPropertyName('cc.license.locale').pipe(
+        getFirstCompletedRemoteData(),
+        getRemoteDataPayload()
+      ).subscribe((remoteData) => {
+          if (remoteData !== undefined && remoteData.values.length !== 0) {
+            this.ccLocale = remoteData.values[0];
           }
       })
     );
