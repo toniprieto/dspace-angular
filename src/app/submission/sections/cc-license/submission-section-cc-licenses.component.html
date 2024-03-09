@@ -71,7 +71,8 @@
           <div *ngFor="let value of field.enums"
                class="mb-4">
             <h5>
-              {{ 'submission.sections.ccLicense.option.answer.' + value.label | translate: {default:value.label} }}
+              <ng-container *ngIf="ccLocale === undefined">{{ 'submission.sections.ccLicense.option.answer.' + value.label | translate: {default:value.label} }}</ng-container>
+              <ng-container *ngIf="ccLocale !== undefined">{{ value.label }}</ng-container>
             </h5>
             <div [innerHTML]="value.description" class="font-weight-light"></div>
           </div>
