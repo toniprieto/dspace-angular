@@ -32,7 +32,7 @@ export class CoordinatesMapComponent {
   constructor (protected leafletMapService: LeafletMapService) {}
 
   ngAfterViewInit() {
-    if (this.leafletMapService.L && (this.item?.allMetadata(this.field).length > 0)) {
+    if (this.leafletMapService.L && this.hasCoordinates()) {
       this.initMarkers();
     }
   }
@@ -115,6 +115,10 @@ export class CoordinatesMapComponent {
 
   zoomMarker(position) {
     this.map.setView(new this.leafletMapService.L.LatLng(position.lat, position.lng), 8);
+  }
+
+  hasCoordinates() {
+    return this.item.allMetadata(this.field).some(v => v.value.startsWith('east='));
   }
 
 }

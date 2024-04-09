@@ -1,4 +1,4 @@
-<div class="item-page-field" *ngIf="item?.allMetadata(field).length > 0">
+<div class="item-page-field" *ngIf="hasCoordinates()">
   <ds-metadata-field-wrapper [label]="label | translate">
     <div *ngFor="let coverageValue of markersInfo;index as i"> 
       <a (click)="zoomMarker(coverageValue.position)" href="javascript:void(0)">
