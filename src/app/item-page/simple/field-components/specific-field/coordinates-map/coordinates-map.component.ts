@@ -64,6 +64,10 @@ export class CoordinatesMapComponent {
       this.map.on('load',function() {
           setTimeout(() => {
             mapVar.invalidateSize();
+            if (fitMap) {
+              mapVar.fitBounds(group.getBounds(), { padding: [50,50] });
+            }
+
           }, 1);
       });
 
@@ -100,11 +104,14 @@ export class CoordinatesMapComponent {
         this.markers.push(marker);
       }
 
+      // Variables usadas en la función timeout
+      const group = this.leafletMapService.L.featureGroup(this.markers);
+      const fitMap = (this.markers.length > 1);
+
       if (this.markers.length === 1) {
         this.zoomMarker(this.markersInfo[0].position);
       } else {
-        let group = this.leafletMapService.L.featureGroup(this.markers);
-        this.map.fitBounds(group.getBounds(), {padding: [50,50]});
+        // El size no esta inicializado aún, el zoom se calcula en una función con timeout anterior
       }
     }
   }
