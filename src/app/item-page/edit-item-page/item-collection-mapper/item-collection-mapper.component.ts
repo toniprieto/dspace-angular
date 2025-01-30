@@ -25,10 +25,10 @@ import {
 import {
   filter,
   map,
-  startWith,
   switchMap,
   take,
 } from 'rxjs/operators';
+import { FindListOptions } from 'src/app/core/data/find-list-options.model';
 
 import { DSONameService } from '../../../core/breadcrumbs/dso-name.service';
 import { CollectionDataService } from '../../../core/data/collection-data.service';
@@ -36,7 +36,6 @@ import { ItemDataService } from '../../../core/data/item-data.service';
 import { PaginatedList } from '../../../core/data/paginated-list.model';
 import { RemoteData } from '../../../core/data/remote-data';
 import { Collection } from '../../../core/shared/collection.model';
-import { DSpaceObjectType } from '../../../core/shared/dspace-object-type.model';
 import { Item } from '../../../core/shared/item.model';
 import { NoContent } from '../../../core/shared/NoContent.model';
 import {
@@ -45,7 +44,6 @@ import {
   getFirstSucceededRemoteData,
   getFirstSucceededRemoteDataPayload,
   getRemoteDataPayload,
-  toDSpaceObjectListRD,
 } from '../../../core/shared/operators';
 import { SearchService } from '../../../core/shared/search/search.service';
 import { SearchConfigurationService } from '../../../core/shared/search/search-configuration.service';
@@ -189,17 +187,21 @@ export class ItemCollectionMapperComponent implements OnInit {
       owningCollectionRD$,
       this.searchOptions$,
     );
+
     this.mappedCollectionsRD$ = itemCollectionsAndOptions$.pipe(
       switchMap(([itemCollectionsRD, owningCollectionRD, searchOptions]) => {
-        return this.searchService.search(Object.assign(new PaginatedSearchOptions(searchOptions), {
-          query: this.buildQuery([...itemCollectionsRD.payload.page, owningCollectionRD.payload], searchOptions.query),
-          dsoTypes: [DSpaceObjectType.COLLECTION],
-        }), 10000).pipe(
-          toDSpaceObjectListRD(),
-          startWith(undefined),
-        );
+
+        const findOptions: FindListOptions = {
+          currentPage: searchOptions.pagination.currentPage,
+          elementsPerPage: searchOptions.pagination.pageSize,
+        };
+
+        return this.collectionDataService
+          .getMapAuthorizedCollection(
+            this.buildQuery([...itemCollectionsRD.payload.page, owningCollectionRD.payload], searchOptions.query),
+            findOptions);
       }),
-    ) as Observable<RemoteData<PaginatedList<Collection>>>;
+    );
   }
 
   /**

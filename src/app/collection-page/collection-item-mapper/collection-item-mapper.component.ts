@@ -25,10 +25,10 @@ import {
 } from 'rxjs';
 import {
   map,
-  startWith,
   switchMap,
   take,
 } from 'rxjs/operators';
+import { FindListOptions } from 'src/app/core/data/find-list-options.model';
 
 import { DSONameService } from '../../core/breadcrumbs/dso-name.service';
 import {
@@ -41,14 +41,12 @@ import { PaginatedList } from '../../core/data/paginated-list.model';
 import { RemoteData } from '../../core/data/remote-data';
 import { Collection } from '../../core/shared/collection.model';
 import { DSpaceObject } from '../../core/shared/dspace-object.model';
-import { DSpaceObjectType } from '../../core/shared/dspace-object-type.model';
 import { NoContent } from '../../core/shared/NoContent.model';
 import {
   getAllSucceededRemoteData,
   getFirstCompletedRemoteData,
   getFirstSucceededRemoteData,
   getRemoteDataPayload,
-  toDSpaceObjectListRD,
 } from '../../core/shared/operators';
 import { SearchService } from '../../core/shared/search/search.service';
 import { SearchConfigurationService } from '../../core/shared/search/search-configuration.service';
@@ -197,15 +195,12 @@ export class CollectionItemMapperComponent implements OnInit {
     );
     this.mappedItemsRD$ = collectionAndOptions$.pipe(
       switchMap(([collectionRD, options, shouldUpdate]) => {
-        return this.searchService.search(Object.assign(new PaginatedSearchOptions(options), {
-          query: this.buildQuery(collectionRD.payload.id, options.query),
-          scope: undefined,
-          dsoTypes: [DSpaceObjectType.ITEM],
-          sort: this.defaultSortOptions,
-        }), 10000, undefined, undefined, followLink('owningCollection')).pipe(
-          toDSpaceObjectListRD(),
-          startWith(undefined),
-        );
+        const findOptions: FindListOptions = {
+          currentPage: options.pagination.currentPage,
+          elementsPerPage: options.pagination.pageSize,
+        };
+        return this.itemDataService
+          .findEditAuthorized(this.buildQuery(collectionRD.payload.id, options.query), findOptions, !shouldUpdate, false, followLink('owningCollection'));
       }),
     );
   }

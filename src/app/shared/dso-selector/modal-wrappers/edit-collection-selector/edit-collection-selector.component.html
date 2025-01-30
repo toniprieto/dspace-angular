@@ -5,10 +5,10 @@
     </button>
   </div>
   <div class="modal-body">
-    <h5 *ngIf="header" class="px-2">{{header | translate}}</h5>
+    <span *ngIf="header" class="h5 px-2">{{header | translate}}</span>
     <ds-authorized-collection-selector [currentDSOId]="dsoRD?.payload.uuid"
-                                      [types]="selectorTypes"
-                                      [action]="rpActionType"
-                                      (onSelect)="selectObject($event)"></ds-authorized-collection-selector>
+                                       [types]="selectorTypes"
+                                       [action]="rpActionType"
+                                       (onSelect)="selectObject($event)"></ds-authorized-collection-selector>
   </div>
 </div>

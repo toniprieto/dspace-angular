@@ -6,6 +6,7 @@ import {
 } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
+import { ActionType } from 'src/app/core/resource-policy/models/action-type.model';
 
 import { CollectionDataService } from '../../../../core/data/collection-data.service';
 import { Collection } from '../../../../core/shared/collection.model';
@@ -33,8 +34,10 @@ describe('AuthorizedCollectionSelectorComponent', () => {
       id: 'authorized-collection',
     });
     collectionService = jasmine.createSpyObj('collectionService', {
+      getAdminAuthorizedCollection: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
       getAuthorizedCollection: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
       getAuthorizedCollectionByEntityType: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
+      getEditAuthorizedCollection: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
     });
     notificationsService = jasmine.createSpyObj('notificationsService', ['error']);
     TestBed.configureTestingModule({
@@ -60,26 +63,53 @@ describe('AuthorizedCollectionSelectorComponent', () => {
   });
 
   describe('search', () => {
-    describe('when has no entity type', () => {
-      it('should call getAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
+    describe('when requested action is not defined', () => {
+      it('should call getAdminAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
         component.search('', 1).subscribe((resultRD) => {
-          expect(collectionService.getAuthorizedCollection).toHaveBeenCalled();
+          expect(collectionService.getAdminAuthorizedCollection).toHaveBeenCalled();
           expect(resultRD.payload.page.length).toEqual(1);
           expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
           done();
         });
       });
     });
-
-    describe('when has entity type', () => {
-      it('should call getAuthorizedCollectionByEntityType and return the authorized collection in a SearchResult', (done) => {
-        component.entityType = 'test';
+    describe('when requested action is WRITE', () => {
+      it('should call getEditAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
+        component.action = ActionType.WRITE;
         fixture.detectChanges();
         component.search('', 1).subscribe((resultRD) => {
-          expect(collectionService.getAuthorizedCollectionByEntityType).toHaveBeenCalled();
+          expect(collectionService.getEditAuthorizedCollection).toHaveBeenCalled();
           expect(resultRD.payload.page.length).toEqual(1);
           expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
           done();
+        });
+      });
+    });
+    describe('when requested action is ADD', () => {
+      describe('when has no entity type', () => {
+        it('should call getAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
+          component.action = ActionType.ADD;
+          fixture.detectChanges();
+          component.search('', 1).subscribe((resultRD) => {
+            expect(collectionService.getAuthorizedCollection).toHaveBeenCalled();
+            expect(resultRD.payload.page.length).toEqual(1);
+            expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
+            done();
+          });
+        });
+      });
+
+      describe('when has entity type', () => {
+        it('should call getAuthorizedCollectionByEntityType and return the authorized collection in a SearchResult', (done) => {
+          component.action = ActionType.ADD;
+          component.entityType = 'test';
+          fixture.detectChanges();
+          component.search('', 1).subscribe((resultRD) => {
+            expect(collectionService.getAuthorizedCollectionByEntityType).toHaveBeenCalled();
+            expect(resultRD.payload.page.length).toEqual(1);
+            expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
+            done();
+          });
         });
       });
     });
