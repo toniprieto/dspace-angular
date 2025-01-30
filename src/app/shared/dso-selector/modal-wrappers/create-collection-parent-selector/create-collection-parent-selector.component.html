@@ -6,8 +6,9 @@
   </div>
   <div class="modal-body">
     <span *ngIf="header" class="h5 px-2">{{header | translate}}</span>
-    <ds-authorized-edit-item-selector [currentDSOId]="dsoRD?.payload.uuid"
-                                    [types]="selectorTypes"
-                                    (onSelect)="selectObject($event)"></ds-authorized-edit-item-selector>
+    <ds-authorized-community-selector [currentDSOId]="dsoRD?.payload.uuid"
+                                       [types]="selectorTypes"
+                                       [action]="action"
+                                       (onSelect)="selectObject($event)"></ds-authorized-community-selector>
   </div>
 </div>

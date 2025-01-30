@@ -17,6 +17,7 @@ import { ListableObjectComponentLoaderComponent } from '../../../object-collecti
 import { createSuccessfulRemoteDataObject$ } from '../../../remote-data.utils';
 import { createPaginatedList } from '../../../testing/utils.test';
 import { VarDirective } from '../../../utils/var.directive';
+import { SelectorActionType } from '../../modal-wrappers/dso-selector-modal-wrapper.component';
 import { AuthorizedCollectionSelectorComponent } from './authorized-collection-selector.component';
 
 describe('AuthorizedCollectionSelectorComponent', () => {
@@ -33,8 +34,10 @@ describe('AuthorizedCollectionSelectorComponent', () => {
       id: 'authorized-collection',
     });
     collectionService = jasmine.createSpyObj('collectionService', {
+      getAdminAuthorizedCollection: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
       getAuthorizedCollection: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
       getAuthorizedCollectionByEntityType: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
+      getEditAuthorizedCollection: createSuccessfulRemoteDataObject$(createPaginatedList([collection])),
     });
     notificationsService = jasmine.createSpyObj('notificationsService', ['error']);
     TestBed.configureTestingModule({
@@ -60,26 +63,53 @@ describe('AuthorizedCollectionSelectorComponent', () => {
   });
 
   describe('search', () => {
-    describe('when has no entity type', () => {
-      it('should call getAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
+    describe('when selected action is not defined', () => {
+      it('should call getAdminAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
         component.search('', 1).subscribe((resultRD) => {
-          expect(collectionService.getAuthorizedCollection).toHaveBeenCalled();
+          expect(collectionService.getAdminAuthorizedCollection).toHaveBeenCalled();
           expect(resultRD.payload.page.length).toEqual(1);
           expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
           done();
         });
       });
     });
-
-    describe('when has entity type', () => {
-      it('should call getAuthorizedCollectionByEntityType and return the authorized collection in a SearchResult', (done) => {
-        component.entityType = 'test';
+    describe('when selected action is EDIT', () => {
+      it('should call getEditAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
+        component.action = SelectorActionType.EDIT;
         fixture.detectChanges();
         component.search('', 1).subscribe((resultRD) => {
-          expect(collectionService.getAuthorizedCollectionByEntityType).toHaveBeenCalled();
+          expect(collectionService.getEditAuthorizedCollection).toHaveBeenCalled();
           expect(resultRD.payload.page.length).toEqual(1);
           expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
           done();
+        });
+      });
+    });
+    describe('when selected action is CREATE', () => {
+      describe('when has no entity type', () => {
+        it('should call getAuthorizedCollection and return the authorized collection in a SearchResult', (done) => {
+          component.action = SelectorActionType.CREATE;
+          fixture.detectChanges();
+          component.search('', 1).subscribe((resultRD) => {
+            expect(collectionService.getAuthorizedCollection).toHaveBeenCalled();
+            expect(resultRD.payload.page.length).toEqual(1);
+            expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
+            done();
+          });
+        });
+      });
+
+      describe('when has entity type', () => {
+        it('should call getAuthorizedCollectionByEntityType and return the authorized collection in a SearchResult', (done) => {
+          component.action = SelectorActionType.CREATE;
+          component.entityType = 'test';
+          fixture.detectChanges();
+          component.search('', 1).subscribe((resultRD) => {
+            expect(collectionService.getAuthorizedCollectionByEntityType).toHaveBeenCalled();
+            expect(resultRD.payload.page.length).toEqual(1);
+            expect(resultRD.payload.page[0].indexableObject).toEqual(collection);
+            done();
+          });
         });
       });
     });

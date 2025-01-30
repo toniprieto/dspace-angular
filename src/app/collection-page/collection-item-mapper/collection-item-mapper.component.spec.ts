@@ -257,14 +257,14 @@ describe('CollectionItemMapperComponent', () => {
     });
   });
 
-  describe('buildQuery', () => {
+  describe('buildFilterQuery', () => {
     const query = 'query';
     const expected = `-location.coll:\"${mockCollection.id}\" AND ${query}`;
 
     let result;
 
     beforeEach(() => {
-      result = comp.buildQuery(mockCollection.id, query);
+      result = comp.buildFilterQuery(mockCollection.id, query);
     });
 
     it('should build a solr query to exclude the provided collection', () => {

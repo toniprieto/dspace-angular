@@ -66,6 +66,93 @@ export class CollectionDataService extends ComColDataService<Collection> {
   }
 
   /**
+   * Get all collections the user is admin of
+   *
+   * @param query                       limit the returned collection to those with metadata values
+   *                                    matching the query terms. The query is also used to build a prefix query. It can be used to implement
+   *                                    an autosuggest feature over the object name
+   * @param filterQuery                 allows adding an additional query to limit the returned obejcts. This parameter is suitable for
+   *                                    queries in Solr format
+   * @param options                     The [[FindListOptions]] object
+   * @param useCachedVersionIfAvailable If this is true, the request will only be sent if there's
+   *                                    no valid cached version. Defaults to true
+   * @param reRequestOnStale            Whether or not the request should automatically be re-
+   *                                    requested after the response becomes stale
+   * @param linksToFollow               List of {@link FollowLinkConfig} that indicate which
+   *                                    {@link HALLink}s should be automatically resolved
+   * @return Observable<RemoteData<PaginatedList<Collection>>>
+   *    collection list
+   */
+  getAdminAuthorizedCollection(query: string, filterQuery: string, options: FindListOptions = {}, useCachedVersionIfAvailable = true, reRequestOnStale = true, ...linksToFollow: FollowLinkConfig<Collection>[]): Observable<RemoteData<PaginatedList<Collection>>> {
+    const searchHref = 'findAdminAuthorized';
+    options = Object.assign({}, options, {
+      searchParams: [new RequestParam('query', query), new RequestParam('filterQuery', filterQuery)],
+    });
+
+    return this.searchBy(searchHref, options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow).pipe(
+      getAllCompletedRemoteData(),
+    );
+  }
+
+  /**
+   * Get all collections the user is authorized to edit
+   *
+   * @param query                       limit the returned collection to those with metadata values
+   *                                    matching the query terms. The query is also used to build a prefix query. It can be used to implement
+   *                                    an autosuggest feature over the object name
+   * @param filterQuery                 allows adding an additional query to limit the returned obejcts. This parameter is suitable for
+   *                                    queries in Solr format
+   * @param options                     The [[FindListOptions]] object
+   * @param useCachedVersionIfAvailable If this is true, the request will only be sent if there's
+   *                                    no valid cached version. Defaults to true
+   * @param reRequestOnStale            Whether or not the request should automatically be re-
+   *                                    requested after the response becomes stale
+   * @param linksToFollow               List of {@link FollowLinkConfig} that indicate which
+   *                                    {@link HALLink}s should be automatically resolved
+   * @return Observable<RemoteData<PaginatedList<Collection>>>
+   *    collection list
+   */
+  getEditAuthorizedCollection(query: string, filterQuery: string,options: FindListOptions = {}, useCachedVersionIfAvailable = true, reRequestOnStale = true, ...linksToFollow: FollowLinkConfig<Collection>[]): Observable<RemoteData<PaginatedList<Collection>>> {
+    const searchHref = 'findEditAuthorized';
+    options = Object.assign({}, options, {
+      searchParams: [new RequestParam('query', query), new RequestParam('filterQuery', filterQuery)],
+    });
+
+    return this.searchBy(searchHref, options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow).pipe(
+      getAllCompletedRemoteData(),
+    );
+  }
+
+  /**
+   * Get all collections the user is authorized to map items to
+   *
+   * @param query                       limit the returned collection to those with metadata values
+   *                                    matching the query terms. The query is also used to build a prefix query. It can be used to implement
+   *                                    an autosuggest feature over the object name
+   * @param filterQuery                 allows adding an additional query to limit the returned obejcts. This parameter is suitable for
+   *                                    queries in Solr format
+   * @param options                     The [[FindListOptions]] object
+   * @param useCachedVersionIfAvailable If this is true, the request will only be sent if there's
+   *                                    no valid cached version. Defaults to true
+   * @param reRequestOnStale            Whether or not the request should automatically be re-
+   *                                    requested after the response becomes stale
+   * @param linksToFollow               List of {@link FollowLinkConfig} that indicate which
+   *                                    {@link HALLink}s should be automatically resolved
+   * @return Observable<RemoteData<PaginatedList<Collection>>>
+   *    collection list
+   */
+  getMapAuthorizedCollection(query: string, filterQuery: string ,options: FindListOptions = {}, useCachedVersionIfAvailable = true, reRequestOnStale = true, ...linksToFollow: FollowLinkConfig<Collection>[]): Observable<RemoteData<PaginatedList<Collection>>> {
+    const searchHref = 'findMapAuthorized';
+    options = Object.assign({}, options, {
+      searchParams: [new RequestParam('query', query), new RequestParam('filterQuery', filterQuery)],
+    });
+
+    return this.searchBy(searchHref, options, useCachedVersionIfAvailable, reRequestOnStale, ...linksToFollow).pipe(
+      getAllCompletedRemoteData(),
+    );
+  }
+
+  /**
    * Get all collections the user is authorized to submit to
    *
    * @param query                       limit the returned collection to those with metadata values
