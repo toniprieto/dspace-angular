@@ -16,8 +16,8 @@ import { environment } from '../../../../../environments/environment';
  */
 
 @Component({
-  selector: 'ds-create-collection-parent-selector',
-  templateUrl: '../dso-selector-modal-wrapper.component.html',
+  selector: 'ds-base-create-collection-parent-selector',
+  templateUrl: './create-collection-parent-selector.component.html',
 })
 export class CreateCollectionParentSelectorComponent extends DSOSelectorModalWrapperComponent implements OnInit {
   objectType = DSpaceObjectType.COLLECTION;

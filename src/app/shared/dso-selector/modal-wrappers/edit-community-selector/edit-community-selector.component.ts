@@ -17,8 +17,8 @@ import { environment } from '../../../../../environments/environment';
  */
 
 @Component({
-  selector: 'ds-edit-community-selector',
-  templateUrl: '../dso-selector-modal-wrapper.component.html',
+  selector: 'ds-base-edit-community-selector',
+  templateUrl: './edit-community-selector.component.html',
 })
 
 export class EditCommunitySelectorComponent extends DSOSelectorModalWrapperComponent implements OnInit {

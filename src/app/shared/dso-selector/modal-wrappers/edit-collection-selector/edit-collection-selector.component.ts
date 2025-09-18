@@ -10,15 +10,14 @@ import {
 import { getCollectionEditRoute } from '../../../../collection-page/collection-page-routing-paths';
 import { SortDirection, SortOptions } from '../../../../core/cache/models/sort-options.model';
 import { environment } from '../../../../../environments/environment';
-
 /**
  * Component to wrap a list of existing collections inside a modal
  * Used to choose a collection from to edit
  */
 
 @Component({
-  selector: 'ds-edit-collection-selector',
-  templateUrl: '../dso-selector-modal-wrapper.component.html',
+  selector: 'ds-base-edit-collection-selector',
+  templateUrl: './edit-collection-selector.component.html',
 })
 export class EditCollectionSelectorComponent extends DSOSelectorModalWrapperComponent implements OnInit {
   objectType = DSpaceObjectType.COLLECTION;
