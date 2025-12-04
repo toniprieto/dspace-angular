@@ -10,6 +10,7 @@ import {
 import { getCollectionEditRoute } from '../../../../collection-page/collection-page-routing-paths';
 import { SortDirection, SortOptions } from '../../../../core/cache/models/sort-options.model';
 import { environment } from '../../../../../environments/environment';
+import { ActionType } from 'src/app/core/resource-policy/models/action-type.model';
 /**
  * Component to wrap a list of existing collections inside a modal
  * Used to choose a collection from to edit
@@ -23,6 +24,7 @@ export class EditCollectionSelectorComponent extends DSOSelectorModalWrapperComp
   objectType = DSpaceObjectType.COLLECTION;
   selectorTypes = [DSpaceObjectType.COLLECTION];
   action = SelectorActionType.EDIT;
+  rpActionType = ActionType.ADD;
   defaultSort = new SortOptions(environment.comcolSelectionSort.sortField, environment.comcolSelectionSort.sortDirection as SortDirection);
 
   constructor(protected activeModal: NgbActiveModal, protected route: ActivatedRoute, private router: Router) {

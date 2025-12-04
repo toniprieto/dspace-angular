@@ -288,6 +288,7 @@ import { OrcidBadgeAndTooltipComponent } from './orcid-badge-and-tooltip/orcid-b
 import { LiveRegionComponent } from './live-region/live-region.component';
 import {BtnDisabledDirective} from './btn-disabled.directive';
 import { AuthorizedCommunitySelectorComponent } from './dso-selector/dso-selector/authorized-community-selector/authorized-community-selector.component';
+import { AuthorizedItemSelectorComponent } from './dso-selector/dso-selector/authorized-item-selector/authorized-item-selector.component';
 
 const MODULES = [
   CommonModule,
@@ -399,6 +400,7 @@ const COMPONENTS = [
   ConfirmationModalComponent,
   AuthorizedCollectionSelectorComponent,
   AuthorizedCommunitySelectorComponent,
+  AuthorizedItemSelectorComponent,
   SearchNavbarComponent,
   ItemPageTitleFieldComponent,
   ThemedSearchNavbarComponent,
