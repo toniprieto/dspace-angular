@@ -68,11 +68,13 @@ export class LocationPickerComponent implements OnInit {
   center!: any;
   options: google.maps.MapOptions = {
     zoomControl: true,
-    gestureHandling: 'none',
+    gestureHandling: 'auto',
     disableDefaultUI: true,
     fullscreenControl: true,
     disableDoubleClickZoom: true,
-    mapTypeId: 'roadmap'
+    mapTypeControl: true,
+    mapTypeId: 'roadmap',
+    draggable: true,
   };
   latitude!: any;
   longitude!: any;
