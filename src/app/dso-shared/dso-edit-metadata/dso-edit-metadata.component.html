@@ -40,6 +40,7 @@
                                       [dsoType]="dsoType"
                                       [saving$]="savingOrLoadingFieldValidation$"
                                       [isOnlyValue]="true"
+                                      [useLocationPicker]="newMdField === locationPickerMetadata"
                                       (confirm)="confirmNewValue($event)"
                                       (remove)="form.newValue = undefined"
                                       (undo)="form.newValue = undefined">

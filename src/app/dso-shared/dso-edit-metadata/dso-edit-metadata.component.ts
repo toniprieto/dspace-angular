@@ -22,6 +22,7 @@ import { ArrayMoveChangeAnalyzer } from '../../core/data/array-move-change-analy
 import { DATA_SERVICE_FACTORY } from '../../core/data/base/data-service.decorator';
 import { GenericConstructor } from '../../core/shared/generic-constructor';
 import { HALDataService } from '../../core/data/base/hal-data-service.interface';
+import { APP_CONFIG, AppConfig } from 'src/config/app-config.interface';
 
 @Component({
   selector: 'ds-dso-edit-metadata',
@@ -99,6 +100,11 @@ export class DsoEditMetadataComponent implements OnInit, OnDestroy {
    */
   public AlertTypeEnum = AlertType;
 
+   /**
+   * Metadatafield used for location-picker
+   */
+   locationPickerMetadata: string;
+
   /**
    * Subscription for updating the current DSpaceObject
    * Unsubscribed from in ngOnDestroy()
@@ -110,7 +116,9 @@ export class DsoEditMetadataComponent implements OnInit, OnDestroy {
               protected translateService: TranslateService,
               protected parentInjector: Injector,
               protected arrayMoveChangeAnalyser: ArrayMoveChangeAnalyzer<number>,
+              @Inject(APP_CONFIG) protected appConfig: AppConfig,
               @Inject(DATA_SERVICE_FACTORY) protected getDataServiceFor: (resourceType: ResourceType) => GenericConstructor<HALDataService<any>>) {
+    this.locationPickerMetadata = this.appConfig.locationPicker.metadata;
   }
 
   /**
